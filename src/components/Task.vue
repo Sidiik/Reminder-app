@@ -1,8 +1,8 @@
 <template>
   <div :class="[task.reminder ? 'reminder' : '', 'taskItem']">
-    <h2>
+    <h4>
       {{ task.title }}
-    </h2>
+    </h4>
     <p>
       {{ task.day }}
     </p>
@@ -25,7 +25,7 @@ export default {
 <style scoped>
 .taskItem {
   background: #eee;
-  padding: 1rem;
+  padding: 0.3rem 1rem;
   margin-top: 1rem;
   border-radius: 0.2rem;
   cursor: grab;

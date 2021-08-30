@@ -1,7 +1,7 @@
 <template>
   <div class="task">
     <Header />
-    <AddTask @add-task="addTask" />
+    <AddTask v-if="showForm" @add-task="addTask" />
     <Tasks @deleteTask="deleteTask" :tasks="tasks" />
   </div>
 </template>
@@ -10,6 +10,7 @@
 import AddTask from "./components/AddTask";
 import Header from "./components/Header.vue";
 import Tasks from "./components/Tasks.vue";
+
 export default {
   components: {
     Header,
@@ -19,7 +20,7 @@ export default {
   data() {
     return {
       tasks: [],
-      showForm: false,
+      showForm: true,
     };
   },
 
@@ -31,8 +32,9 @@ export default {
       this.tasks = [...this.tasks, task];
     },
     deleteTask(id) {
-      console.log("task", id);
-      this.tasks = [...this.tasks, this.tasks.filter((task) => task.id !== id)];
+      if (confirm("are you sure ? ")) {
+        this.tasks = this.tasks.filter((task) => task.id !== id);
+      }
     },
   },
 };
