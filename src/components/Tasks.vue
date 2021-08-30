@@ -1,7 +1,7 @@
 <template>
   <div class="tasks">
     <div v-for="task in tasks" :key="task.id">
-      <Task :task="task" />
+      <Task @deleteTask="deleteTask(task.id)" :task="task" />
     </div>
   </div>
 </template>
@@ -14,6 +14,11 @@ export default {
   props: ["tasks"],
   data() {
     return {};
+  },
+  methods: {
+    deleteTask(id) {
+      this.$emit("deleteTask", id);
+    },
   },
 };
 </script>

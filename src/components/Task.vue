@@ -6,7 +6,7 @@
     <p>
       {{ task.day }}
     </p>
-    <span>&times;</span>
+    <span @click="deleteTask(task.id)">&times;</span>
   </div>
 </template>
 
@@ -14,6 +14,11 @@
 export default {
   name: "Task",
   props: ["task"],
+  methods: {
+    deleteTask(id) {
+      this.$emit("deleteTask", id);
+    },
+  },
 };
 </script>
 

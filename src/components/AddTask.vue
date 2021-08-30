@@ -28,7 +28,6 @@
       </div>
     </form>
   </div>
-  {{ reminder }}
 </template>
 
 <script>
@@ -41,9 +40,18 @@ export default {
   methods: {
     onSubmit(e) {
       e.preventDefault();
-      console.log("hey submitted");
+      const newTask = {
+        id: Math.floor(Math.random() * 100000),
+        title: this.taskName,
+        day: this.due,
+        reminder: this.reminder,
+      };
+      this.$emit("add-task", newTask);
+
+      (this.taskName = ""), (this.due = ""), (this.reminder = false);
     },
   },
+  emits: ["add-task"],
   data() {
     return {
       taskName: "",

@@ -1,8 +1,8 @@
 <template>
   <div class="task">
     <Header />
-    <AddTask />
-    <Tasks :tasks="tasks" />
+    <AddTask @add-task="addTask" />
+    <Tasks @deleteTask="deleteTask" :tasks="tasks" />
   </div>
 </template>
 
@@ -19,30 +19,21 @@ export default {
   data() {
     return {
       tasks: [],
+      showForm: false,
     };
   },
 
   created() {
-    this.tasks = [
-      {
-        id: Math.floor(Math.random() * 1000),
-        title: "Go to the Mosque",
-        day: "30th Aug 2021",
-        reminder: true,
-      },
-      {
-        id: Math.floor(Math.random() * 1000),
-        title: "Go to the Hospital",
-        day: "28th Aug 2021",
-        reminder: false,
-      },
-      {
-        id: Math.floor(Math.random() * 1000),
-        title: "Update software ",
-        day: "10th sept 2021",
-        reminder: false,
-      },
-    ];
+    this.tasks = [];
+  },
+  methods: {
+    addTask(task) {
+      this.tasks = [...this.tasks, task];
+    },
+    deleteTask(id) {
+      console.log("task", id);
+      this.tasks = [...this.tasks, this.tasks.filter((task) => task.id !== id)];
+    },
   },
 };
 </script>
