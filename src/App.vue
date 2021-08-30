@@ -1,8 +1,13 @@
 <template>
   <div class="task">
-    <Header />
+    <Header @show-hide-task="showHideTask" />
     <AddTask v-if="showForm" @add-task="addTask" />
-    <Tasks @deleteTask="deleteTask" :tasks="tasks" />
+    <div v-if="tasks.length">
+      <Tasks @deleteTask="deleteTask" :tasks="tasks" />
+    </div>
+    <div v-else>
+      <p class="text-danger">No tasks available</p>
+    </div>
   </div>
 </template>
 
@@ -30,6 +35,9 @@ export default {
   methods: {
     addTask(task) {
       this.tasks = [...this.tasks, task];
+    },
+    showHideTask() {
+      this.showForm = !this.showForm;
     },
     deleteTask(id) {
       if (confirm("are you sure ? ")) {

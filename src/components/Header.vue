@@ -1,7 +1,11 @@
 <template>
   <header>
     <h1>Task manager</h1>
-    <Button text="add" color="#292D3E" />
+    <Button
+      @show-hide-task="$emit('show-hide-task')"
+      text="Add new item"
+      color="#292D3E"
+    />
   </header>
 </template>
 
