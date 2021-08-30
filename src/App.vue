@@ -37,7 +37,7 @@ export default {
         id: Math.floor(Math.random() * 1000),
         title: "Update software ",
         day: "10th sept 2021",
-        reminder: true,
+        reminder: false,
       },
     ];
   },
