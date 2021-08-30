@@ -1,17 +1,20 @@
 <template>
   <div class="task">
     <Header />
+    <AddTask />
     <Tasks :tasks="tasks" />
   </div>
 </template>
 
 <script>
+import AddTask from "./components/AddTask";
 import Header from "./components/Header.vue";
 import Tasks from "./components/Tasks.vue";
 export default {
   components: {
     Header,
     Tasks,
+    AddTask,
   },
   data() {
     return {
