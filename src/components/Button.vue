@@ -1,6 +1,6 @@
 <template>
   <button
-    class="btn text-light"
+    class="btn text-light btnss"
     @click="onClick()"
     :style="{ background: color }"
   >
@@ -19,4 +19,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.btnss {
+  border: 0;
+  box-shadow: none !important;
+}
+</style>
