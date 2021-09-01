@@ -1,6 +1,6 @@
 <template>
-  <div class="new-task">
-    <h3>New task</h3>
+  <div class="new-task m-1 ">
+    <h4 class="text-secondary">Setup a task</h4>
     <form @submit="onSubmit">
       <div class="task-name">
         <input
@@ -64,10 +64,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 label {
   margin-left: 1rem;
   user-select: none;
   cursor: pointer;
+}
+.new-task {
+  transition: all 0.3s ease;
+  padding: 2rem;
 }
 </style>

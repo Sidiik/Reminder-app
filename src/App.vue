@@ -1,6 +1,10 @@
 <template>
   <div class="task">
-    <Header @show-hide-task="showHideTask" />
+    <Header
+      @show-hide-task="showHideTask"
+      :buttonText="buttonText"
+      :showForm="showForm"
+    />
     <AddTask v-if="showForm" @add-task="addTask" />
     <div v-if="tasks.length">
       <Tasks @deleteTask="deleteTask" :tasks="tasks" />
@@ -27,6 +31,7 @@ export default {
     return {
       tasks: [],
       showForm: false,
+      buttonText: "",
     };
   },
 
