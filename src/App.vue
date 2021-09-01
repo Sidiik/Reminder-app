@@ -22,10 +22,11 @@ export default {
     Tasks,
     AddTask,
   },
+
   data() {
     return {
       tasks: [],
-      showForm: true,
+      showForm: false,
     };
   },
 

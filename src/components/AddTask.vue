@@ -40,15 +40,17 @@ export default {
   methods: {
     onSubmit(e) {
       e.preventDefault();
-      const newTask = {
-        id: Math.floor(Math.random() * 100000),
-        title: this.taskName,
-        day: this.due,
-        reminder: this.reminder,
-      };
-      this.$emit("add-task", newTask);
+      if (this.taskName && this.due) {
+        const newTask = {
+          id: Math.floor(Math.random() * 100000),
+          title: this.taskName,
+          day: this.due,
+          reminder: this.reminder,
+        };
+        this.$emit("add-task", newTask);
 
-      (this.taskName = ""), (this.due = ""), (this.reminder = false);
+        (this.taskName = ""), (this.due = ""), (this.reminder = false);
+      }
     },
   },
   emits: ["add-task"],
